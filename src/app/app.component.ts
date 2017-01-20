@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+interface Task {
+  content:string,
+  isSelected:boolean
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,10 +12,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = "Sponge Bob";
-  resultText = [];
+  resultText: Task[]=[];
   inputText = "";
+
   setText(text:string){
-    this.resultText.push(text);
+    let obj :Task = {
+      content:text,
+      isSelected :false
+    };
+    this.resultText.push(obj);
     this.inputText = "";
   }
   deleteElement(index){

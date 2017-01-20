@@ -1,8 +1,11 @@
 <h1>
-  Hello {{title}} !
+  {{title}} !
 </h1>
 <input  type="text" [(ngModel)]="inputText">
 <button (click)="setText(inputText)">Add text</button>
 <ul>
-<li *ngFor='let text of resultText;let i = index'>{{text}}<button (click)="deleteElement(i)">Bórrame</button></li>
+  <h3 *ngIf="resultText.length === 0"> No tienes ninguna tarea que hacer capullo</h3>
+<li *ngFor='let text of resultText;let i = index'>
+  <input type="checkbox" [(ngModel)]="text.isSelected"><p [class.isSelected]="text.isSelected">{{text.content}}</p>
+  <button (click)="deleteElement(i)">Bórrame</button></li>
 </ul>
