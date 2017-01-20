@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = "Sponge Bob";
+  resultText = [];
+  inputText = "";
+  setText(text:string){
+    this.resultText.push(text);
+    this.inputText = "";
+  }
+  deleteElement(index){
+    this.resultText.splice(index,1);
+  }
 }

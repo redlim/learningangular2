@@ -1,3 +1,8 @@
 <h1>
-  {{title}}
+  Hello {{title}} !
 </h1>
+<input  type="text" [(ngModel)]="inputText">
+<button (click)="setText(inputText)">Add text</button>
+<ul>
+<li *ngFor='let text of resultText;let i = index'>{{text}}<button (click)="deleteElement(i)">Bórrame</button></li>
+</ul>
