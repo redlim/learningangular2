@@ -11,17 +11,24 @@ interface Task {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  emptyText = false;
   title = "Sponge Bob";
   resultText: Task[]=[];
   inputText = "";
 
   setText(text:string){
-    let obj :Task = {
-      content:text,
-      isSelected :false
-    };
-    this.resultText.push(obj);
-    this.inputText = "";
+    if(text.length === 0){
+      this.emptyText = true;
+    }else{
+      this.emptyText = false;
+      let obj :Task = {
+        content:text,
+        isSelected :false
+      };
+      this.resultText.push(obj);
+      this.inputText = "";
+    }
+
   }
   deleteElement(index){
     this.resultText.splice(index,1);
