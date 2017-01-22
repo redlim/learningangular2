@@ -28,9 +28,9 @@ export class AppComponent {
       this.resultText.push(obj);
       this.inputText = "";
     }
-
   }
-  deleteElement(index){
-    this.resultText.splice(index,1);
+  deleteItem(item:number){
+    console.log(item);
+    this.resultText.splice(item,1)
   }
 }
