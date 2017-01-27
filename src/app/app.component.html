@@ -7,5 +7,5 @@
   <h3 *ngIf="resultText.length === 0"> No tienes ninguna tarea que hacer capullo</h3>
   <h3 *ngIf="emptyText">La tarea no debería estar vacía</h3>
   <li *ngFor='let item of resultText;let i = index'>
-    <my-item [task]="item" [position]="i" (deleteElement)="deleteItem($event)"></my-item>
+    <my-item [task]="item" (deleteElement)="deleteItem(i)"></my-item>
 </ul>

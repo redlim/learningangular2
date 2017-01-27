@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-
-interface Task {
-  content:string,
-  isSelected:boolean
-}
+import { Task } from './item.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   emptyText = false;
   title = "Sponge Bob";
@@ -30,7 +27,6 @@ export class AppComponent {
     }
   }
   deleteItem(item:number){
-    console.log(item);
     this.resultText.splice(item,1)
   }
 }

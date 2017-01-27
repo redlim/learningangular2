@@ -1,6 +1,6 @@
 import { Component, Input,Output, EventEmitter } from '@angular/core';
 
-interface Task {
+export interface Task {
   content:string,
   isSelected:boolean
 }
@@ -13,10 +13,9 @@ interface Task {
 export class ItemComponent {
 
   @Input() task:Task;
-  @Input() position : number;
-  @Output() deleteElement = new EventEmitter();
+  @Output() deleteElement = new EventEmitter<Task>();
 
-  deleteItem(position){
-    this.deleteElement.emit(position)
+  deleteItem(){
+    this.deleteElement.emit()
   }
 }
