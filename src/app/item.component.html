@@ -1,2 +1,2 @@
-<input type="checkbox" [(ngModel)]="task.isSelected"><p [class.isSelected]="task.isSelected">{{task.content}}</p>
+<input type="checkbox" [(ngModel)]="task.checked" (change)="checkItem()"><p [class.isSelected]="task.checked">{{task.description}}</p>
 <button (click)="deleteItem()">Bórrame</button>

@@ -1,8 +1,9 @@
 import { Component, Input,Output, EventEmitter } from '@angular/core';
 
 export interface Task {
-  content:string,
-  isSelected:boolean
+  id?:number,
+  description:string,
+  checked:boolean
 }
 
 @Component({
@@ -14,8 +15,14 @@ export class ItemComponent {
 
   @Input() task:Task;
   @Output() deleteElement = new EventEmitter<Task>();
-
+  @Output() checked = new EventEmitter<Task>();
   deleteItem(){
     this.deleteElement.emit()
   }
+
+  checkItem(){
+    this.checked.emit()
+  }
+
+
 }
