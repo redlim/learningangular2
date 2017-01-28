@@ -1,14 +1,16 @@
 <h1>
   {{title}}!!
 </h1>
-<input  type="text" [(ngModel)]="inputText">
-<button (click)="setText(inputText)">Add text</button>
-<div *ngIf="isLoading">
-  <img src="https://www.sintesis.mx/css/img/loading.gif" width="150" height="150">
+<div class="main-content">
+  <input  type="text" [(ngModel)]="inputText">
+  <button (click)="setText(inputText)">Add text</button>
+  <ul>
+    <h3 *ngIf="resultText.length === 0"> No tienes ninguna tarea que hacer capullo</h3>
+    <h3 *ngIf="emptyText">La tarea no debería estar vacía</h3>
+    <li *ngFor='let item of resultText;'>
+      <my-item [task]="item" (deleteElement)="deleteItem(item)" (checked)="modifyData(item)"></my-item>
+  </ul>
 </div>
-<ul>
-  <h3 *ngIf="resultText.length === 0"> No tienes ninguna tarea que hacer capullo</h3>
-  <h3 *ngIf="emptyText">La tarea no debería estar vacía</h3>
-  <li *ngFor='let item of resultText;'>
-    <my-item [task]="item" (deleteElement)="deleteItem(item)" (checked)="modifyData(item)"></my-item>
-</ul>
+<div class="loadingGif">
+  <img *ngIf="isLoading" src="https://www.sintesis.mx/css/img/loading.gif" width="150" height="150">
+</div>
