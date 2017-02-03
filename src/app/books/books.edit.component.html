@@ -1,0 +1,5 @@
+<h2>{{book.title}}</h2>
+<label for="title">Título</label> <input [(ngModel)]="book.title"  id="title"  type="text">
+<label for="description">Descripción</label> <input [(ngModel)]="book.description" id="description" type="text">
+<label for="detail">Detalles</label> <input [(ngModel)]="book.detail" id="detail"  type="text">
+<button type="button" (click)="saveBook()">guardar</button>

@@ -3,30 +3,29 @@ import { Http, Response } from '@angular/http'
 import 'rxjs/Rx';
 
 @Injectable()
-export class ItemService{
+export class BooksService{
 
   constructor(private http:Http){}
 
   private url = "http://127.0.0.1:8080/books/";
 
-  getItems(){
+  getBooks(){
     return this.http.get(this.url).map(
-      response => this.setChecked(response.json())
+      response => response.json()
+    )
+  }
+  getBook(id){
+    return this.http.get(this.url+id).map(
+      response => response.json()
     )
   }
 
-  setChecked(data){
-    for (let d of data) {
-      d.checked = d.checked !== "false";
-    }
-    return data;
-  }
-  setItems(data){
+  setBook(data){
     return this.http.post(this.url,data).map(
       response => response
     )
   }
-  modifyItem(item){
+  modifyBook(item){
     return this.http.put(this.url+item.id,item).map(
       response => response
     )

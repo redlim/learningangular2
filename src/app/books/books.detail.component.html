@@ -1,0 +1,6 @@
+<h2>{{book?.title}}</h2>
+<div><label>Id: </label>{{book?.id}}</div>
+<div><label>Description: </label>{{book?.description}}</div>
+<p><button (click)="editBook(book.id)">Editar</button></p>
+<p><button (click)="deleteBook(book)">Eliminar</button></p>
+<p><button (click)="gotoBooks()">Voooolver</button></p>
