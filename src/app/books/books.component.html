@@ -1,25 +1,27 @@
-<table>
-  <thead>
-  <tr>
-    <th>Título</th>
-    <th>Editar</th>
-    <th>Eliminar</th>
-  </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let book of books">
-      <td>
-        <a [routerLink]="['/book',book.id]">
-        {{book.id}}­{{book.title}}
-        </a>
-      </td>
-      <td>
-        <button type="button" (click)="editBook(book)">Editar</button>
-      </td>
-      <td>
-        <button type="button" (click)="deleteBook(book)">Eliminar</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<button type="button" (click)="newBook()">Nuevo</button>
+<!--<div class="app-content">-->
+  <!--<md-card>-->
+    <!--<md-nav-list>-->
+      <!--<a *ngFor="let book of books" md-list-item  [routerLink]="['/book',book.id]">-->
+        <!--{{book.id}}.- {{book.title}}-->
+      <!--</a>-->
+    <!--</md-nav-list></md-card>-->
+<!--</div>-->
+<div class="app-content">
+  <md-card  *ngFor="let book of books" class="example-card">
+    <md-card-header>
+      <div md-card-avatar class="example-header-image"></div>
+      <md-card-title>{{book.title}}</md-card-title>
+    </md-card-header>
+    <md-card-content>
+      <p>
+        {{book.description}}
+      </p>
+    </md-card-content>
+    <md-card-actions>
+      <button (click)="editBook(book.id)" color="primary" md-fab><md-icon>edit</md-icon></button>
+      <button (click)="deleteBook(book)" color="warn" md-fab><md-icon>delete</md-icon></button>
+      <button (click)="gotoBooks()" md-fab><md-icon>home</md-icon></button>
+    </md-card-actions>
+  </md-card>
+  <button (click)="newBook()" md-fab class="md-button-ripple-round"><md-icon>note_add</md-icon></button>
+</div>
